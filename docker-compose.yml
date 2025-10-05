@@ -1,0 +1,37 @@
+name: '${APP_NAME}'
+services:
+    mysql:
+        container_name: '${APP_NAME}_container'
+        image: 'mysql/mysql-server:8.0'
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ROOT_HOST: '%'
+            MYSQL_DATABASE: '${DB_DATABASE}'
+            MYSQL_USER: '${DB_USERNAME}'
+            MYSQL_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+        ports:
+            - '3306:3306'
+        networks:
+            - cyber
+        volumes:
+            - ./mysql-custom.cnf:/etc/my.cnf
+            - 'sail-mysql:/var/lib/mysql'
+            - './docker/db/init/:/docker-entrypoint-initdb.d/'
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        environment:
+            PMA_HOST: mysql
+            PMA_USER: root
+            PMA_PASSWORD: '${DB_PASSWORD}'
+        ports:
+            - '8088:80'
+        networks:
+            - cyber
+networks:
+    cyber:
+        driver: bridge
+volumes:
+    sail-mysql:
+        driver: local

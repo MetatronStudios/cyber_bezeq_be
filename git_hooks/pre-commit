@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Path to your counter file
+COUNTER_FILE="public/counter.txt"
+
+# Read the current counter value
+COUNTER=$(cat $COUNTER_FILE)
+
+# Increment the counter
+COUNTER=$((COUNTER + 1))
+
+# Update the counter file
+echo $COUNTER > $COUNTER_FILE
+
+# Add the counter file to the commit
+git add $COUNTER_FILE
+
+# Amend the commit with the updated counter file
+#git commit --amend --no-edit

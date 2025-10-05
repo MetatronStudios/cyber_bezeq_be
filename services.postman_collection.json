@@ -1,0 +1,387 @@
+{
+	"variables": [],
+	"info": {
+		"name": "atlit",
+		"_postman_id": "5388d822-561c-12c2-bb00-053c939c3114",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "commom",
+			"description": "",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"url": "api/register",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "rod1234@metatron.co.il",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Rodrigo",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "051-2604148",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "1231232",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "marketing",
+									"value": "1",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setGlobalVariable(\"token\", data.data.token);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "api/login",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "rodrigo@metatron.co.il",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123",
+									"type": "text"
+								}
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "userInfo",
+					"request": {
+						"url": "api/userInfo",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "rodrigo@metatron.co.il",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123",
+									"type": "text"
+								}
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "recover",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setGlobalVariable(\"token\", data.data.token);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "api/password/email",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "rodrigo@metatron.co.il",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "reset",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setGlobalVariable(\"token\", data.data.token);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "api/password/reset",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "rodrigo@metatron.co.il",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "v1",
+			"description": "",
+			"item": [
+				{
+					"name": "auth",
+					"description": "",
+					"item": [
+						{
+							"name": "get all riddles logged",
+							"request": {
+								"url": "api/v1/auth/riddle",
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									}
+								],
+								"body": {},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "send solution",
+							"request": {
+								"url": "api/v1/auth/solution",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer "
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_riddle",
+											"value": "1",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "answer",
+											"value": "1",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "get ticker",
+					"request": {
+						"url": "api/v1/ticker",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							}
+						],
+						"body": {},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "get all riddles not logged",
+					"request": {
+						"url": "api/v1/riddle",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "get all facts",
+					"request": {
+						"url": "api/v1/fact",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "v2",
+			"description": "",
+			"item": [
+				{
+					"name": "auth",
+					"description": "",
+					"item": [
+						{
+							"name": "send reply",
+							"request": {
+								"url": "api/v2/auth/reply",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer ",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "replies",
+											"value": "1,2,3",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "get ticker finalist",
+					"request": {
+						"url": "api/v2/ticker",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							}
+						],
+						"body": {},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
