@@ -2,7 +2,7 @@
 header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
 header('Expires: 0');
-if (time() > mktime(0, 0, 1, 11, 2, 2025)) {
+if (time() > mktime(0, 0, 1, 11, 3, 2025)) {
     header('location: /index.html');
     exit();
 }?><!DOCTYPE html>
@@ -10,12 +10,12 @@ if (time() > mktime(0, 0, 1, 11, 2, 2025)) {
 
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QRFLRYEXWM"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-789WG8EQTS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-QRFLRYEXWM');
+  gtag('config', 'G-789WG8EQTS');
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,9 +48,9 @@ if (time() > mktime(0, 0, 1, 11, 2, 2025)) {
 
 <body lang="he" dir="rtl">
     <i class="construction-icon">🚧</i>
-    <h1>Elbit Security Cyber Game<br>
+    <h1>Bezeq Cyber Game<br>
         בעקבות חמיצר ואוצרות הסייבר הישראלי</h1>
-    <p>יעלה להתמודדות ביום א' ה- 2 בנובמבר</p>
+    <p>יעלה להתמודדות ביום ב' ה- 3 בנובמבר</p>
     <p>בהצלחה!<br>
 <img src="dan_sign.png" alt="דן חמיצר"></p>
 </body>
