@@ -22,7 +22,7 @@
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+    RewriteRule ^ index.html [L]
 
     #set under.php as index page
     #DirectoryIndex index.html
