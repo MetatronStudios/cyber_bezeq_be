@@ -12,15 +12,18 @@
             opacity: 0.2;
          }
          g{
-            fill: #004990;
-            opacity: 0.5;
+            fill: #006bff;
+            opacity: 1;
+
          }
          g:hover {
-            filter: drop-shadow(0 0 10px #00fff2) brightness(2.5);
+            /* fill: #30ddfe; */
+            filter: drop-shadow(0 0 10px #30ddfe99) ;
+            opacity: 1;
             
          }
          .solvedPuzzle {
-            fill:#ffdc2d;
+            fill:#ff4583;
             opacity: 1;
          }
       </style>
