@@ -10,12 +10,12 @@ if (time() > mktime(0, 0, 1, 11, 3, 2025)) {
 
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-789WG8EQTS"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YMK2KV6PVR"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-789WG8EQTS');
+  gtag('config', 'G-YMK2KV6PVR');
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

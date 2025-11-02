@@ -73,7 +73,7 @@ $q = $q->select(
     'id_user',
     'users.name as name',
     'users.email as email',
-    'users.district as district',
+    // 'users.district as district',
     DB::raw('SUM(CASE WHEN is_correct = 1 THEN riddles.score ELSE 0 END) as total_score'),
     DB::raw('COUNT(CASE WHEN is_correct = 0 THEN 1 END) as wrong_solutions_count'),
     DB::raw('MAX(CASE WHEN is_correct = 1 THEN solutions.created_at ELSE null END) as last_correct_solution_time')
@@ -94,7 +94,7 @@ return $q->paginate(50);
             'id_user',
             'users.name as name',
             'users.email as email',
-            'users.district as district',
+            // 'users.district as district',
             DB::raw('SUM(CASE WHEN is_correct = 1 THEN riddles.score ELSE 0 END) as total_score'),
             DB::raw('COUNT(CASE WHEN is_correct = 0 THEN 1 END) as wrong_solutions_count'),
             DB::raw('MAX(CASE WHEN is_correct = 1 THEN solutions.created_at ELSE null END) as last_correct_solution_time')
@@ -113,7 +113,7 @@ return $q->paginate(50);
             'id_user',
             'users.name as name',
             'users.email as email',
-            'users.district as district',
+            // 'users.district as district',
             'answer',
             'score',
             'finalist_score.created_at as created_at'

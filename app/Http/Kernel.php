@@ -36,11 +36,11 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            'throttle:35,1',
+            'throttle:65,1',
         ],
 
         'api' => [
-            'throttle:35,1',
+            'throttle:65,1',
             'bindings',
             \App\Http\Middleware\AllowedIpMiddleware::class,
             \Barryvdh\Cors\HandleCors::class,
