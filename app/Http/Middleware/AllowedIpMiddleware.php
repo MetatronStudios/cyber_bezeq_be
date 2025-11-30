@@ -16,7 +16,7 @@ class AllowedIpMiddleware
 
     public function handle($request, Closure $next)
     {
-        if (!env('ENABLE_IP_FILTER')) {
+        if (!config('app.enable_ip_filter')) {
             return $next($request);
         }
         else {

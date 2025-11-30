@@ -4,7 +4,16 @@ return [
     'recaptcha_key' => env('RECAPCHA_SITE_KEY', ''),
     'recaptcha_secret' => env('RECAPCHA_SECRET_KEY', ''),
 
-
+    // Project specific configuration
+    'enable_ip_filter' => env('ENABLE_IP_FILTER', false),
+    'base_url' => env('BASE_URL', ''),
+    'client_url' => env('CLIENT_URL', ''),
+    'project_subject_he' => env('PROJECT_SUBJECT_HE', ''),
+    'project_emails_from_name' => env('PROJECT_EMAILS_FROM_NAME', 'CyberGame'),
+    'project_emails_from_mail' => env('PROJECT_EMAILS_FROM_MAIL', 'do-not-reply@mail4b2c.com'),
+    'mail_disabled' => env('MAIL_DISABLED', false),
+    'total_riddles' => env('TOTAL_RIDDLES', 15),
+    'total_facts' => env('TOTAL_FACTS', 70),
     /*
     |--------------------------------------------------------------------------
     | Application Name

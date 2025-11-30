@@ -7,10 +7,7 @@ Route::group(['middleware' => ['cors']], function () {
     Route::post('login', 'AuthController@login');
     Route::post('password/email', 'AuthController@recover');
     Route::post('password/reset', 'AuthController@reset');
-    Route::get('version', function () {
-        // read the version number from a file named "counter.txt" which is located in the public folder and return it
-        return response()->json(['version' => trim(file_get_contents(public_path('counter.txt')))]);
-    });
+    Route::get('version','ConfigController@get_version');
     Route::get('timers', 'ConfigController@getTimers');
     Route::group(['middleware' => ['jwt.refresh2']], function () {
         Route::post('refresh', 'AuthController@refresh');

@@ -21,7 +21,7 @@ class FactService extends ParentService
 
     private function populate()
     {
-        $total = env('TOTAL_FACTS') ? env('TOTAL_FACTS') : 70;
+        $total = config('app.total_facts', 70);
         for ($i = 1; $i <= $total; $i++) {
             $data = [   'title' => 'title',
                         'is_correct' => 0];

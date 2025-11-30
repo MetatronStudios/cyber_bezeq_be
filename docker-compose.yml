@@ -30,6 +30,16 @@ services:
             - '8088:80'
         networks:
             - cyber
+    redis:
+        container_name: '${APP_NAME}_redis'
+        image: 'redis:alpine'
+        restart: always
+        ports:
+            - '6379:6379'
+        networks:
+            - cyber
+        volumes:
+            - 'sail-redis:/data'
     laravel:
         container_name: '${APP_NAME}_laravel'
         build:
@@ -45,6 +55,7 @@ services:
             - './:/var/www/html'
         depends_on:
             - mysql
+            - redis
         environment:
             DB_HOST: mysql
             DB_PORT: 3306
@@ -56,4 +67,6 @@ networks:
         driver: bridge
 volumes:
     sail-mysql:
+        driver: local
+    sail-redis:
         driver: local

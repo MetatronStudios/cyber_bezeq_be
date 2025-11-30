@@ -27,7 +27,7 @@ class RiddleService extends ParentService
 
     private function populate()
     {
-        $total = env('TOTAL_RIDDLES') ? env('TOTAL_RIDDLES') : 15;
+        $total = config('app.total_riddles', 15);
         for ($i = 1; $i <= $total; $i++) {
             $data = [   'type' => 'N',
                         'title' => 'Riddle Number '.$i,

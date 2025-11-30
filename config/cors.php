@@ -14,7 +14,7 @@ return [
 
     'supportsCredentials' => false,
     'allowedOrigins' => ['https://elbitsecurity.cybergame.co.il'],
-    'allowedOriginsPatterns' => env('APP_ENV') === 'local' ? ['/^http:\/\/localhost(:[0-9]+)?$/', '/^http:\/\/192\.168\.\d+\.\d+(:[0-9]+)?$/'] : [],
+    'allowedOriginsPatterns' => env('APP_ENV') === 'local' ? ['/^http:\/\/localhost(:[0-9]+)?$/', '/^http:\/\/127\.0\.0\.1(:[0-9]+)?$/', '/^http:\/\/192\.168\.\d+\.\d+(:[0-9]+)?$/'] : [],
     'allowedHeaders' => ['*'],
     'allowedMethods' => ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     'exposedHeaders' => [],

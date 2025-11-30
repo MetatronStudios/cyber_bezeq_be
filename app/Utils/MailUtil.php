@@ -11,13 +11,13 @@ class MailUtil
      */
     public static function sendMail( $view, $data, $email, $subject='הודעה ממערכת' )
     {
-        if ( env('MAIL_DISABLED') ) {
+        if (config('app.mail_disabled')) {
             return;
         }
 
         Mail::send($view, $data, function ($m) use ($email, $subject) {
-            $fromEmail =env('PROJECT_EMAILS_FROM_MAIL')?env('PROJECT_EMAILS_FROM_MAIL'):'do-not-reply@mail4b2c.com';
-            $name = env('PROJECT_EMAILS_FROM_NAME')?env('PROJECT_EMAILS_FROM_NAME'):'מערכת החידון';
+            $fromEmail = config('app.project_emails_from_mail', 'do-not-reply@mail4b2c.com');
+            $name = config('app.project_emails_from_name', 'מערכת החידון');
             $m->from($fromEmail, $name);
             $m->replyTo('do-not-reply@mail4b2c.com',$name);
             $m->subject($subject);

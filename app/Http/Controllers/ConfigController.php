@@ -36,9 +36,10 @@ class ConfigController extends ParentController
         $item = [];
 
         $ticker = Cache::remember('ticker', 120, function () {
-            return $this->service->getById(1);
+            $tik = $this->service->getById(1);
+            return $tik->text;
         });
-        $item["ticker"] = $ticker->text;
+        $item["ticker"] = $ticker;
 
         $start  = $DISABLED_START ? strtotime($DISABLED_START) : $now-1;
         $end    = $DISABLED_END ? strtotime($DISABLED_END) : $now+1;
@@ -48,7 +49,7 @@ class ConfigController extends ParentController
         $item["endTimer"] = 0;
 
         if ($item["isFinal"]) {
-            $start = strtotime($ENABLED_START) + rand(0, 8); // add 0-5 seconds for concurrent control
+            $start = strtotime($ENABLED_START) + rand(0, 10); // add 0-5 seconds for concurrent control
             $end = strtotime($ENABLED_END) ;
             $item["startTimer"] = ($start - $now) <= 0 ? -10 : ($start - $now) * 1000;
             $item["endTimer"] = ($end - $now) * 1000;
@@ -64,5 +65,13 @@ class ConfigController extends ParentController
         $start  = $DISABLED_START ? strtotime($DISABLED_START) : $now-1;
         $end    = $DISABLED_END ? strtotime($DISABLED_END) : $now+1;
         return (!(($now < $start) || ($now > $end )));
+    }
+
+    public function get_version()
+    {
+        $ver = Cache::remember('app_version', 120, function () {
+            return trim(file_get_contents(public_path('counter.txt')));
+        });
+        return response()->json(['version' => $ver]);
     }
 }

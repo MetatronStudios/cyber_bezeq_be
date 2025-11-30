@@ -54,7 +54,7 @@ class Handler extends ExceptionHandler
         if ($exception instanceof UnauthorizedHttpException) {
             return response()->json(['errors' => $exception->getMessage()])->setStatusCode(JsonResponse::HTTP_UNAUTHORIZED);
         }
-        if (env('APP_DEBUG')) {
+        if (config('app.debug')) {
             return parent::render($request, $exception);
         }
         return response()->json(['errors' => $exception->getMessage()])->setStatusCode(500);

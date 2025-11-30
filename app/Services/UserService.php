@@ -30,10 +30,9 @@ class UserService extends ParentService
         }
         $user = parent::add($data);
         if ( $user ) {
-
-            $url = env('BASE_URL') ? env('BASE_URL') : '';
+            $url = config('app.base_url', '');
             $subject = "Registration confirmation - ";
-            $subject .=env('PROJECT_SUBJECT_HE')?env('PROJECT_SUBJECT_HE'):'';
+            $subject .= config('app.project_subject_he', '');
             // MailUtil::sendMail('emails.welcome', ['name'=>$data['name'],'url'=>$url], $data['email'], $subject);
         }
         return $user;
@@ -71,10 +70,10 @@ class UserService extends ParentService
         $passResRep = new PasswordResetRepository();
         $passwordReset = $passResRep->updateOrCreate($user->email);
         if ( $passwordReset ) {
-            $url = env('CLIENT_URL') ? env('CLIENT_URL') : '';
+            $url = config('app.client_url', '');
             $url .= $passwordReset->token;
             $subject = "Reset password - ";
-            $subject .=env('PROJECT_SUBJECT_HE')?env('PROJECT_SUBJECT_HE'):'';
+            $subject .= config('app.project_subject_he', '');
             MailUtil::sendMail('emails.recover_password', ['url' => $url], $user->email,$subject);
         }
         return true;
