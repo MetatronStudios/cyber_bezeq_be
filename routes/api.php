@@ -8,6 +8,10 @@ Route::group(['middleware' => ['cors']], function () {
     Route::post('password/email', 'AuthController@recover');
     Route::post('password/reset', 'AuthController@reset');
     Route::get('version','ConfigController@get_version');
+    Route::get('load_test','ConfigController@load_test');
+    Route::get('simple_load_test','ConfigController@simple_load_test');
+
+
     Route::get('timers', 'ConfigController@getTimers');
     Route::group(['middleware' => ['jwt.refresh2']], function () {
         Route::post('refresh', 'AuthController@refresh');

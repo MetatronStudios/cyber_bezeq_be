@@ -20,7 +20,7 @@ class FactController extends ParentController
     public function list(Request $request)
     {
         cache()->forget('all_facts');
-        $items = cache()->remember('all_facts', 9000, function () {
+        $items = cache()->remember('all_facts', 120, function () {
             return $this->service->getAll();
         });
         $items = $this->service->getAllPaginate($request->all());
@@ -54,7 +54,7 @@ class FactController extends ParentController
     public function getAll()
     {
         // $items = $this->service->getAll();
-        $items = cache()->remember('all_facts', 9000, function () {
+        $items = cache()->remember('all_facts', 120, function () {
             return $this->service->getAll();
         });
         return $this->respondWithData($items);
