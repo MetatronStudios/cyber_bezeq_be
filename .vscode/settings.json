@@ -26,5 +26,5 @@
 "vue-helper.indent-size": 4,
 "splitHTMLAttributes.tabSize": 4,
 "vetur.format.options.tabSize": 4,
-"php.validate.executablePath": "docker compose exec laravel php"
+
 }
